@@ -7,7 +7,7 @@
 
 int main(int argc, char **argv)
 {
-	unsigned file_count = argc - 1;
+	size_t file_count = static_cast<size_t>(argc - 1);
 	if (file_count == 0)
 	{
 		std::cout << "==========You should give the input files' paths==========\n";
@@ -15,7 +15,7 @@ int main(int argc, char **argv)
 	}
 	std::string input_path;
 	std::vector<std::string> file_name(file_count);
-	for (unsigned file_num = 1; file_num <= file_count; ++file_num)
+	for (size_t file_num = 1; file_num <= file_count; ++file_num)
 	{
 		file_name[file_num - 1] = argv[file_num];
 	}
@@ -25,7 +25,7 @@ int main(int argc, char **argv)
 	unsigned max_weight;
 	std::ifstream file;
 
-	for (unsigned file_num = 0; file_num < file_count; ++file_num)
+	for (size_t file_num = 0; file_num < file_count; ++file_num)
 	{
 		input_path = "./input" + file_name[file_num];
 		file.open(input_path);
