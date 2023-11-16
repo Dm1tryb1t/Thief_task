@@ -39,6 +39,8 @@ int main(int argc, char **argv)
 		}
 		file.close();
 		
+		get_max_summary_value_recursive(vals, max_weight, 0, max_weight, vals_count - 1);
+		get_max_summary_value_dynamic(vals, max_weight);
 
 		input_path.clear();
 		vals_count = max_weight = 0;
