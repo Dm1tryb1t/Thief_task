@@ -38,10 +38,15 @@ int main(int argc, char **argv)
 			file >> vals[i].weight;
 		}
 		file.close();
-		
-		get_max_summary_value_recursive(vals, max_weight, 0, max_weight, vals_count - 1);
-		get_max_summary_value_dynamic(vals, max_weight);
-
+		unsigned answer = static_cast<unsigned>(-1);
+		if (vals_count < 30 && (1 << vals_count) < vals_count * max_weight) {
+			std::cout << "\t\t==========Recursive==========\n";
+			answer = get_max_summary_value_recursive(vals, max_weight, 0, max_weight, vals_count - 1);
+		} else {
+			std::cout << "\t\t==========Dynamic==========\n";
+			answer = get_max_summary_value_dynamic(vals, max_weight);
+		}
+		std::cout << answer << std::endl;
 		input_path.clear();
 		vals_count = max_weight = 0;
 		vals.clear();
