@@ -1,7 +1,5 @@
 #include "./include/solve.hpp"
 
-// Для рекурсии нужно востановить собранные предметы
-
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -39,22 +37,16 @@ int main(int argc, char **argv)
 		}
 		file.close();
 		unsigned answer = static_cast<unsigned>(-1);
-		if (vals_count < 30 && (1 << vals_count) < vals_count * max_weight) {
-			std::cout << "\t\t==========Recursive==========\n";
-			answer = get_max_summary_value_recursive(vals, max_weight);
-			// std::cout << answer << std::endl;
-		} else {
-			std::cout << "\t\t==========Dynamic==========\n";
-			answer = get_max_summary_value_dynamic(vals, max_weight, path);
-		}
-		std::cout << "path:\t";
+		// std::cout << "\t\t==========Dynamic==========\n";
+		answer = get_max_summary_value_dynamic(vals, max_weight, path);
+		std::cout << "==========" << file_name[file_num] << "==========";
+		std::cout << "\npath:\t";
 		print_vec(path);
 		std::cout << "The max summary value is: " << answer << std::endl;
 		path.clear();
 		input_path.clear();
 		vals_count = max_weight = 0;
 		vals.clear();
-		// path.clear();
 	}
 
 	return 0;

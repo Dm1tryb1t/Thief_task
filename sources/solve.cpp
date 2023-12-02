@@ -6,7 +6,6 @@
 #include <vector>
 
 std::vector<unsigned> path;
-// std::set<unsigned> path_recursive;
 
 void find_prev_taken(const std::vector<Valuables> &vals, const std::vector<std::vector<unsigned>> &A, const std::pair<unsigned, unsigned> &ind) {
   if (ind.first * ind.second == 0) {
@@ -45,28 +44,5 @@ unsigned get_max_summary_value_dynamic(const std::vector<Valuables> &vals, unsig
   find_path(vals, A, max_weight);
   my_path = path;
   path.clear();
-  // print_path();
   return A[vals.size()][max_weight];
-}
-
-unsigned get_max_summary_value_recursive_(const std::vector<Valuables> &vals, unsigned max_weight, unsigned cur_value, unsigned cur_weight, int id) {
-  if (id == -1) {
-    return cur_value;
-  }
-  unsigned nene = get_max_summary_value_recursive_(vals, max_weight, cur_value, cur_weight, id - 1);
-  unsigned dada = 0;
-  if (cur_weight >= vals[id].weight) {
-    dada = get_max_summary_value_recursive_(vals, max_weight, cur_value + vals[id].value, cur_weight - vals[id].weight, id - 1);
-  }
-  // тут как-то восстанавливаем путь ещё
-  if (dada > nene) {
-
-    return dada;
-  }
-  return nene;
-}
-
-unsigned get_max_summary_value_recursive(const std::vector<Valuables> &vals, unsigned max_weight) {
-  unsigned tmp = get_max_summary_value_recursive_(vals, max_weight, 0, max_weight, vals.size() - 1);
-  return tmp;
 }
