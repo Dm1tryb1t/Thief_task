@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/dz3.dir/source/main.cpp.o CMakeFiles/dz3.dir/source/functions.cpp.o -o dz3 

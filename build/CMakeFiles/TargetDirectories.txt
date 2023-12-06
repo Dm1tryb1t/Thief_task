@@ -1,0 +1,3 @@
+/home/mihail/Рабочий стол/sd/build/CMakeFiles/dz3.dir
+/home/mihail/Рабочий стол/sd/build/CMakeFiles/edit_cache.dir
+/home/mihail/Рабочий стол/sd/build/CMakeFiles/rebuild_cache.dir

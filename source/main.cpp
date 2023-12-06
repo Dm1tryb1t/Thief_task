@@ -1,9 +1,11 @@
-#include "./include/solve.hpp"
+#include "header.h"
 
 #include <fstream>
 #include <iostream>
 #include <string>
 #include <vector>
+
+
 
 int main(int argc, char **argv)
 {
@@ -26,7 +28,7 @@ int main(int argc, char **argv)
 
 	for (unsigned file_num = 0; file_num < file_count; ++file_num) {
 		std::ifstream file;
-		input_path = "./input/" + file_name[file_num];
+		input_path = file_name[file_num];
 		file.open(input_path);
 		file >> vals_count;
 		file >> max_weight;
